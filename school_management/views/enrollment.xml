@@ -34,12 +34,11 @@
                 <group string="Classes">
                     <field name="school_class_ids" nolabel="1"/>
                 </group>
-                <group class="oe_subtotal_footer">
+                <group>
                     <field name="gross_price"/>
                     <field name="discount"/>
                     <field name="net_price" class="oe_subtotal_footer_separator"/>
                 </group>
-                <div class="oe_clear" />
             </sheet>
         </form>
       </field>

@@ -32,6 +32,15 @@
                     <group>
                         <field name="starting_hour" widget="float_time"/>
                         <field name="ending_hour" widget="float_time"/>
+                        <field name="total_hours" widget="float_time"/>
+                    </group>
+                </group>
+                <group string="Valores">
+                    <group>
+                        <field name="hour_price" />
+                    </group>
+                    <group>
+                        <field name="total_price" />
                     </group>
                 </group>
             </sheet>
