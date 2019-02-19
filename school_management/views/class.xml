@@ -63,7 +63,7 @@
     </record>
 
     <menuitem name="School Management" id="menu_school_root" />
-    <menuitem name="Configuration" id="menu_school_configuration" parent="menu_school_root"/>
+    <menuitem name="Configuration" id="menu_school_configuration" parent="menu_school_root" sequence="100"/>
 
     <menuitem name="Classes" id="menu_school_classes" parent="menu_school_configuration"
         action="action_school_classes"/>

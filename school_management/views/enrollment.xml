@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+
+    <record id="view_school_enrollment_tree" model="ir.ui.view" >
+      <field name="name">View School Enrollment Tree</field>
+      <field name="model">school.enrollment</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="partner_id" />
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="net_price" />
+          </tree>
+      </field>
+    </record>
+
+    <record id="view_school_enrollment_form" model="ir.ui.view">
+      <field name="name">View School Enrollment Form</field>
+      <field name="model">school.enrollment</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+            </header>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="partner_id" />
+                    </group>
+                    <group>
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </group>
+                </group>
+                <group string="Classes">
+                    <field name="school_class_ids" nolabel="1"/>
+                </group>
+                <group class="oe_subtotal_footer">
+                    <field name="gross_price"/>
+                    <field name="discount"/>
+                    <field name="net_price" class="oe_subtotal_footer_separator"/>
+                </group>
+                <div class="oe_clear" />
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_school_enrollment">
+      <field name="name">Enrollments</field>
+      <field name="res_model">school.enrollment</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Enrollments" id="menu_school_enrollment" parent="menu_school_root"
+        action="action_school_enrollment" sequence="10"/>
+
+  </data>
+</odoo>

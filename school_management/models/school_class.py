@@ -16,3 +16,6 @@ class SchoolClass(models.Model):
     ending_hour = fields.Float(string="Ending Hour")
 
     partner_id = fields.Many2one('res.partner', string="Professor")
+    hour_price = fields.Float(string="Price per Hour")
+
+    total_price = fields.Float(string="Total Price")

@@ -9,6 +9,7 @@
     ],
     'data': [
         'views/class.xml',
+        'views/enrollment.xml',
     ],
     'application': True,
 }
