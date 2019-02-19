@@ -14,3 +14,5 @@ class SchoolClass(models.Model):
          ('friday', 'Friday Yey')], string="Week Day")
     starting_hour = fields.Float(string="Starting Hour")
     ending_hour = fields.Float(string="Ending Hour")
+
+    partner_id = fields.Many2one('res.partner', string="Professor")

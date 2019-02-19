@@ -7,6 +7,7 @@
       <field name="arch" type="xml">
           <tree>
               <field name="name"/>
+              <field name="partner_id" />
               <field name="weekday"/>
               <field name="starting_hour" widget="float_time"/>
               <field name="ending_hour" widget="float_time"/>
@@ -25,6 +26,7 @@
                 <group>
                     <group>
                         <field name="name"/>
+                        <field name="partner_id" />
                         <field name="weekday"/>
                     </group>
                     <group>
@@ -43,10 +45,12 @@
       <field name="arch" type="xml">
           <search>
               <field name="name"/>
-              <field name="weekday"/>
+              <field name="partner_id"/>
               <group expand="0" name="group_by" string="Group By">
                   <filter name="weekday" string="Week Day"
                     domain="[]" context="{'group_by' : 'weekday'}"/>
+                  <filter name="professor" string="By Professor"
+                    domain="[]" context="{'group_by' : 'partner_id'}"/>
               </group>
           </search>
       </field>
