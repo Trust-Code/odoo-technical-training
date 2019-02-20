@@ -8,6 +8,8 @@
         'contacts',
     ],
     'data': [
+        'security/groups.xml',
+        'security/ir.model.access.csv',
         'views/class.xml',
         'views/enrollment.xml',
         'views/menus.xml',

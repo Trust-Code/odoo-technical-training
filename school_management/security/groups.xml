@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+      <record id="category_school" model="ir.module.category">
+          <field name="name">School</field>
+          <field name="sequence">20</field>
+      </record>
+
+      <record id="group_school_user" model="res.groups">
+          <field name="name">User</field>
+          <field name="category_id" ref="school_management.category_school" />
+      </record>
+
+      <record id="group_school_manager" model="res.groups">
+          <field name="name">Manager</field>
+          <field name="category_id" ref="school_management.category_school" />
+          <field name="implied_ids" eval="[(4, ref('school_management.group_school_user'))]" />
+      </record>
+
+  </data>
+</odoo>

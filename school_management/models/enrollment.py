@@ -8,20 +8,40 @@ class Enrollment(models.Model):
     def _default_currency_id(self):
         return self.env.user.company_id.currency_id
 
-    partner_id = fields.Many2one('res.partner', string="Student")
+    @api.multi
+    def name_get(self):
+        result = []
+        for record in self:
+            name = '%s - %s até %s' % (record.partner_id.name,
+                                       record.start_date, record.end_date)
+            result.append((record.id, name))
+        return result
 
-    start_date = fields.Date(string="Start Date", required=True)
-    end_date = fields.Date(string="End Date", required=True)
+    partner_id = fields.Many2one(
+        'res.partner', string="Student", required=True, readonly=True,
+        states={'draft': [('readonly', False)]})
 
-    school_class_ids = fields.Many2many('school.class', string="Classes")
+    start_date = fields.Date(string="Start Date", required=True, readonly=True,
+                             states={'draft': [('readonly', False)]})
+    end_date = fields.Date(string="End Date", required=True, readonly=True,
+                           states={'draft': [('readonly', False)]})
 
-    currency_id = fields.Many2one('res.currency', string="Moeda",
-                                   default=_default_currency_id)
+    school_class_ids = fields.Many2many(
+        'school.class', string="Classes", readonly=True,
+        states={'draft': [('readonly', False)]})
+
+    currency_id = fields.Many2one(
+        'res.currency', string="Moeda",default=_default_currency_id,
+        readonly=True, states={'draft': [('readonly', False)]})
     gross_price = fields.Monetary(
         string="Base Price", compute="_compute_price", store=True)
-    discount = fields.Float(string="Discount (%)")
+    discount = fields.Float(string="Discount (%)", readonly=True,
+                            states={'draft': [('readonly', False)]})
     net_price = fields.Monetary(string="Net Amount Monthly",
-                             compute='_compute_final_value', store=True)
+                                compute='_compute_final_value', store=True)
+    state = fields.Selection(
+        [('draft', 'Draft'), ('in_use', 'In Use'), ('expired', 'Expired')],
+        string="State", default="draft", readonly=True, copy=False)
 
     @api.one
     @api.constrains('start_date', 'end_date')
@@ -40,3 +60,12 @@ class Enrollment(models.Model):
     def _compute_final_value(self):
         for item in self:
             item.net_price = item.gross_price * (1 - (item.discount / 100))
+
+    def action_confirm(self):
+        self.write({'state': 'in_use'})
+
+    def action_expiry(self):
+        self.write({'state': 'expired'})
+
+    def action_back_draft(self):
+        self.write({'state': 'draft'})
