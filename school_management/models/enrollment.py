@@ -33,7 +33,6 @@ class Enrollment(models.Model):
 
     @api.depends('school_class_ids')
     def _compute_price(self):
-        import ipdb; ipdb.set_trace()
         for item in self:
             item.gross_price = sum(line.total_price for line in item.school_class_ids)
 

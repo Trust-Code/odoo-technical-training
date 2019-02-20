@@ -10,6 +10,8 @@
       <field name="name">Students</field>
       <field name="res_model">res.partner</field>
       <field name="view_mode">kanban,tree,form</field>
+      <field name="domain">[('student', '=', True)]</field>
+      <field name="context">{'default_student': 1}</field>
     </record>
 
     <menuitem name="Students" id="menu_school_student" parent="menu_school_data"
@@ -22,6 +24,8 @@
       <field name="name">Teachers</field>
       <field name="res_model">res.partner</field>
       <field name="view_mode">kanban,tree,form</field>
+      <field name="domain">[('teacher', '=', True)]</field>
+      <field name="context">{'default_teacher': 1}</field>
     </record>
 
     <menuitem name="Teachers" id="menu_school_teacher" parent="menu_school_data"

@@ -11,6 +11,7 @@
         'views/class.xml',
         'views/enrollment.xml',
         'views/menus.xml',
+        'views/res_partner.xml',
     ],
     'application': True,
 }

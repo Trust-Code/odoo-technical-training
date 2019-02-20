@@ -9,6 +9,7 @@ class SchoolClass(models.Model):
     def _default_currency_id(self):
         return self.env.user.company_id.currency_id
 
+    active = fields.Boolean(string="Active", default=True)
     name = fields.Char(string="Name", size=100)
     weekday = fields.Selection(
         [('monday', 'Monday'),

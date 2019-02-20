@@ -24,7 +24,8 @@
             <sheet>
                 <group>
                     <group>
-                        <field name="partner_id" />
+                        <field name="partner_id" domain="[('student', '=', True)]"
+                            context="{'default_student': 1}" />
                     </group>
                     <group>
                         <field name="start_date" />
