@@ -6,6 +6,9 @@ from odoo.exceptions import ValidationError
 class SchoolClass(models.Model):
     _name = 'school.class'
 
+    def _default_currency_id(self):
+        return self.env.user.company_id.currency_id
+
     name = fields.Char(string="Name", size=100)
     weekday = fields.Selection(
         [('monday', 'Monday'),
@@ -19,9 +22,12 @@ class SchoolClass(models.Model):
         string="Total Hours", compute='_compute_total_hours', store=True)
 
     partner_id = fields.Many2one('res.partner', string="Professor")
-    hour_price = fields.Float(string="Price per Hour")
 
-    total_price = fields.Float(
+    currency_id = fields.Many2one('res.currency', string="Moeda",
+                                  default=_default_currency_id)
+    hour_price = fields.Monetary(string="Price per Hour")
+
+    total_price = fields.Monetary(
         string="Total Price", compute='_compute_total_price', store=True)
 
     @api.one

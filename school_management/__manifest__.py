@@ -5,11 +5,12 @@
     'author': 'Trustcode',
     'license': 'AGPL-3',
     'depends': [
-        'contacts'
+        'contacts',
     ],
     'data': [
         'views/class.xml',
         'views/enrollment.xml',
+        'views/menus.xml',
     ],
     'application': True,
 }

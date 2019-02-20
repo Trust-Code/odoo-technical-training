@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
           <tree>
               <field name="name"/>
-              <field name="partner_id" />
+              <field name="partner_id" options="{'no_quick_create': True}"/>
               <field name="weekday"/>
               <field name="starting_hour" widget="float_time"/>
               <field name="ending_hour" widget="float_time"/>
@@ -37,6 +37,7 @@
                 </group>
                 <group string="Valores">
                     <group>
+                        <field name="currency_id" />
                         <field name="hour_price" />
                     </group>
                     <group>

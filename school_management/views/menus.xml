@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+
+    <menuitem name="Data" id="menu_school_data" parent="menu_school_root"
+       sequence="20"/>
+
+    <!-- Estudantes -->
+
+    <record model="ir.actions.act_window" id="action_school_student">
+      <field name="name">Students</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem name="Students" id="menu_school_student" parent="menu_school_data"
+        action="action_school_student" sequence="20"/>
+
+
+    <!-- Professores -->
+
+    <record model="ir.actions.act_window" id="action_school_teacher">
+      <field name="name">Teachers</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem name="Teachers" id="menu_school_teacher" parent="menu_school_data"
+        action="action_school_teacher" sequence="30"/>
+
+
+  </data>
+</odoo>
