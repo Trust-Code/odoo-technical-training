@@ -1,0 +1,92 @@
+<odoo>
+
+    <template id="report_enrollment_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+            <div class="page">
+
+              <h2>
+                  <span>Enrollment # </span>
+                  <span t-field="doc.partner_id"/>
+              </h2>
+
+              <div class="row mt32 mb32" id="informations">
+                  <div class="col-xs-3">
+                      <strong>Start Date:</strong>
+                      <p t-field="doc.start_date"/>
+                  </div>
+                  <div class="col-xs-3">
+                      <strong>End Date:</strong>
+                      <p t-field="doc.end_date"/>
+                  </div>
+                  <div class="col-xs-3 col-offset-3">
+                      <img t-att-src="'/report/barcode/?type=QR&amp;value=%s&amp;width=200&amp;height=200' % doc.partner_id.name"/>
+                  </div>
+              </div>
+
+              <table class="table table-condensed">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th class="text-right">Professor</th>
+                          <th class="text-right">Week Day</th>
+                          <th class="text-right">Starting</th>
+                          <th class="text-right">Ending</th>
+                      </tr>
+                 </thead>
+                 <tbody>
+                      <t t-foreach="doc.school_class_ids" t-as="l">
+                          <tr>
+                              <td><span t-field="l.name"/></td>
+                              <td class="text-right"><span t-field="l.partner_id"/></td>
+                              <td class="text-right"><span t-field="l.weekday"/></td>
+                              <td class="text-right"><span t-field="l.starting_hour"/></td>
+                              <td class="text-right"><span t-field="l.ending_hour"/></td>
+                          </tr>
+                      </t>
+                  </tbody>
+              </table>
+
+              <div class="clearfix">
+                  <div class="row" name="total">
+                      <div class="col-xs-4 pull-right">
+                          <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                              <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                  <td><strong>Base Price</strong></td>
+                                  <td class="text-right">
+                                      <span t-field="doc.gross_price"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                  </td>
+                              </tr>
+                              <tr style="border-bottom:1px solid #dddddd;">
+                                  <td>Discount (%)</td>
+                                  <td class="text-right">
+                                      <span t-esc="'%.d%%%' % doc.discount" />
+                                  </td>
+                              </tr>
+                              <tr class="border-black">
+                                  <td><strong>Total</strong></td>
+                                  <td class="text-right">
+                                      <span t-field="doc.net_price"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+
+
+            </div>
+        </t>
+    </template>
+
+    <template id="report_enrollment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+              <t t-call="school_management.report_enrollment_document" />
+            </t>
+        </t>
+    </template>
+
+</odoo>

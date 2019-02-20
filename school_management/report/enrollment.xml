@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="action_report_enrollment"
+            string="Enrollemnt"
+            model="school.enrollment"
+            report_type="qweb-html"
+            file="school_management.report_enrollment"
+            name="school_management.report_enrollment"
+            print_report_name="'Enrollment - %s' % (object.partner_id.name)"
+        />
+
+    </data>
+</odoo>
