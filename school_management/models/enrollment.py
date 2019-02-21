@@ -5,6 +5,8 @@ from odoo.exceptions import ValidationError
 class Enrollment(models.Model):
     _name = 'school.enrollment'
 
+    _inherit = ['mail.activity.mixin', 'mail.thread']
+
     def _default_company_id(self):
         return self.env.user.company_id
 

@@ -6,6 +6,7 @@
     'license': 'AGPL-3',
     'depends': [
         'contacts',
+        'mail',
     ],
     'data': [
         'security/groups.xml',
