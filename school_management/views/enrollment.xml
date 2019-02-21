@@ -37,6 +37,7 @@
                     <group>
                         <field name="partner_id" domain="[('student', '=', True)]"
                             context="{'default_student': 1}" />
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" />
                     </group>
                     <group>
                         <field name="start_date" />

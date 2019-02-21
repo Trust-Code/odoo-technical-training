@@ -1,0 +1,371 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* school_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-21 18:52+0000\n"
+"PO-Revision-Date: 2019-02-21 18:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "<span>Enrollment # </span>"
+msgstr "<span>Enrollment # </span>"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "<strong>Base Price</strong>"
+msgstr "<strong>Base Price</strong>"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "<strong>End Date:</strong>"
+msgstr "<strong>End Date:</strong>"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "<strong>Start Date:</strong>"
+msgstr "<strong>Data de Início:</strong>"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "<strong>Total</strong>"
+msgstr "Total"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_enrollment_form
+msgid "Back to draft"
+msgstr "Back to draft"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_gross_price
+msgid "Base Price"
+msgstr "Base Price"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_class_search
+msgid "By Professor"
+msgstr "By Professor"
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.action_school_classes
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_school_class_ids
+#: model:ir.ui.menu,name:school_management.menu_school_classes
+#: model:ir.ui.view,arch_db:school_management.view_school_enrollment_form
+msgid "Classes"
+msgstr "Classes"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: school_management
+#: model:ir.ui.menu,name:school_management.menu_school_configuration
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_enrollment_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_res_partner
+msgid "Contact"
+msgstr "Contato"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_create_date
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: school_management
+#: model:ir.ui.menu,name:school_management.menu_school_data
+msgid "Data"
+msgstr "Data"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_discount
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "Discount (%)"
+msgstr "Desconto (%)"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_display_name
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: school_management
+#: selection:school.enrollment,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_end_date
+#: model:ir.ui.view,arch_db:school_management.list_enrollment_template
+msgid "End Date"
+msgstr "Data Final"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "Ending"
+msgstr "Ending"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_ending_hour
+msgid "Ending Hour"
+msgstr "Ending Hour"
+
+#. module: school_management
+#: model:ir.actions.report,name:school_management.action_report_enrollment
+msgid "Enrollemnt"
+msgstr "Matrícula"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.list_enrollment_template
+msgid "Enrollment #"
+msgstr "Matrícula #"
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.action_school_enrollment
+#: model:ir.ui.menu,name:school_management.menu_school_enrollment
+msgid "Enrollments"
+msgstr "Matriculas"
+
+#. module: school_management
+#: selection:school.enrollment,state:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_enrollment_form
+msgid "Expiry"
+msgstr "Expirar"
+
+#. module: school_management
+#: selection:school.class,weekday:0
+msgid "Friday Yey"
+msgstr "Sexta-feira Yey"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_class_search
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_id
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_id
+msgid "ID"
+msgstr "ID"
+
+#. module: school_management
+#: selection:school.enrollment,state:0
+msgid "In Use"
+msgstr "Em uso"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class___last_update
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment___last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_write_date
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: school_management
+#: model:res.groups,name:school_management.group_school_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_currency_id
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_currency_id
+msgid "Moeda"
+msgstr "Moeda"
+
+#. module: school_management
+#: selection:school.class,weekday:0
+msgid "Monday"
+msgstr "Segunda"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.list_enrollment_template
+msgid "My Enrollments"
+msgstr "Minhas Matriculas"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_name
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "Name"
+msgstr "Nome"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_net_price
+msgid "Net Amount Monthly"
+msgstr "Valor Mês"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_hour_price
+msgid "Price per Hour"
+msgstr "Preço por hora"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_partner_id
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "Professor"
+msgstr "Professor"
+
+#. module: school_management
+#: model:ir.module.category,name:school_management.category_school
+msgid "School"
+msgstr "Escola"
+
+#. module: school_management
+#: model:ir.ui.menu,name:school_management.menu_school_root
+msgid "School Management"
+msgstr "Escolas"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_start_date
+#: model:ir.ui.view,arch_db:school_management.list_enrollment_template
+msgid "Start Date"
+msgstr "Data de Início"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+msgid "Starting"
+msgstr "Iniciando"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_starting_hour
+msgid "Starting Hour"
+msgstr "Hora Inicial"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_state
+msgid "State"
+msgstr "Estado"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_res_partner_student
+#: model:ir.model.fields,field_description:school_management.field_res_users_student
+#: model:ir.model.fields,field_description:school_management.field_school_enrollment_partner_id
+msgid "Student"
+msgstr "Estudante"
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.action_school_student
+#: model:ir.ui.menu,name:school_management.menu_school_student
+msgid "Students"
+msgstr "Estudantes"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_res_partner_teacher
+#: model:ir.model.fields,field_description:school_management.field_res_users_teacher
+msgid "Teacher"
+msgstr "Professores"
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.action_school_teacher
+#: model:ir.ui.menu,name:school_management.menu_school_teacher
+msgid "Teachers"
+msgstr "Professores"
+
+#. module: school_management
+#: selection:school.class,weekday:0
+msgid "Thursday"
+msgstr "Quinta-Feira"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.list_enrollment_template
+msgid "Total"
+msgstr "Total"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_total_hours
+msgid "Total Hours"
+msgstr "Horas Totais"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_total_price
+msgid "Total Price"
+msgstr "Preço Total"
+
+#. module: school_management
+#: selection:school.class,weekday:0
+msgid "Tuesday"
+msgstr "Terça"
+
+#. module: school_management
+#: model:res.groups,name:school_management.group_school_user
+msgid "User"
+msgstr "Usuário"
+
+#. module: school_management
+#: model:ir.ui.view,arch_db:school_management.view_school_class_form
+msgid "Valores"
+msgstr "Valores"
+
+#. module: school_management
+#: selection:school.class,weekday:0
+msgid "Wednesday"
+msgstr "Quarta-Feira"
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_class_weekday
+#: model:ir.ui.view,arch_db:school_management.report_enrollment_document
+#: model:ir.ui.view,arch_db:school_management.view_enrollment_template
+#: model:ir.ui.view,arch_db:school_management.view_school_class_search
+msgid "Week Day"
+msgstr "Dia da Semana"
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_class
+msgid "school.class"
+msgstr "school.class"
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_enrollment
+msgid "school.enrollment"
+msgstr "school.enrollment"

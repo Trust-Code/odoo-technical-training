@@ -5,8 +5,10 @@ from odoo.exceptions import ValidationError
 class Enrollment(models.Model):
     _name = 'school.enrollment'
 
-    def _default_currency_id(self):
+    def _default_company_id(self):
+        return self.env.user.company_id
 
+    def _default_currency_id(self):
         return self.env.user.company_id.currency_id
 
     @api.multi
@@ -17,6 +19,10 @@ class Enrollment(models.Model):
                                        record.start_date, record.end_date)
             result.append((record.id, name))
         return result
+
+    company_id = fields.Many2one(
+        'res.company', string="Company", required=True, readonly=True,
+        states={'draft': [('readonly', False)]}, default=_default_company_id)
 
     partner_id = fields.Many2one(
         'res.partner', string="Student", required=True, readonly=True,
