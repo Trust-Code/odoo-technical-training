@@ -6,6 +6,7 @@ class Enrollment(models.Model):
     _name = 'school.enrollment'
 
     def _default_currency_id(self):
+
         return self.env.user.company_id.currency_id
 
     @api.multi

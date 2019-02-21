@@ -16,6 +16,7 @@
         'views/res_partner.xml',
         'report/enrollment.xml',
         'report/enrollment_templates.xml',
+        'views/website_templates.xml',
     ],
     'application': True,
 }
