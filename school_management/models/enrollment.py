@@ -30,6 +30,7 @@ class Enrollment(models.Model):
         'res.partner', string="Student", required=True, readonly=True,
         states={'draft': [('readonly', False)]})
 
+    code = fields.Char(string="Code")
     start_date = fields.Date(string="Start Date", required=True, readonly=True,
                              states={'draft': [('readonly', False)]})
     end_date = fields.Date(string="End Date", required=True, readonly=True,
