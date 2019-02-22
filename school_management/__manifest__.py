@@ -1,14 +1,16 @@
 {
     'name': 'School Management 2.0',
     'summary': """School Management by Danimar""",
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.1',
     'author': 'Trustcode',
     'license': 'AGPL-3',
     'depends': [
         'contacts',
         'mail',
+        'sale',
     ],
     'data': [
+        'data/data.xml',
         'security/groups.xml',
         'security/ir.model.access.csv',
         'views/class.xml',
@@ -18,6 +20,7 @@
         'report/enrollment.xml',
         'report/enrollment_templates.xml',
         'views/website_templates.xml',
+        'views/sale_order.xml',
     ],
     'application': True,
 }

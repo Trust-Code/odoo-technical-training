@@ -6,6 +6,7 @@
       <field name="model">school.enrollment</field>
       <field name="arch" type="xml">
           <tree>
+              <field name="code" />
               <field name="state" />
               <field name="partner_id" />
               <field name="start_date"/>
@@ -33,9 +34,16 @@
                   statusbar_visible="draft,in_use,expired" />
             </header>
             <sheet>
+
+                <div class="oe_button_box" name="button_box">
+                    <button type="object" name="action_view_invoices" class="oe_stat_button" icon="fa-usd" attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                        <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                    </button>
+                </div>
+
                 <group>
                     <group>
-                        <field name="code" />
+                        <field name="code" attrs="{'invisible': [('code', '=', False)]}"/>
                         <field name="partner_id" domain="[('student', '=', True)]"
                             context="{'default_student': 1}" />
                         <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" />
@@ -43,6 +51,7 @@
                     <group>
                         <field name="start_date" />
                         <field name="end_date" />
+                        <field name="next_invoice" />
                     </group>
                 </group>
                 <group string="Classes">
