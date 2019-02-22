@@ -1,9 +1,11 @@
+from datetime import date, timedelta
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
 class Enrollment(models.Model):
     _name = 'school.enrollment'
+    _order = 'id desc'
 
     _inherit = ['mail.activity.mixin', 'mail.thread']
 
@@ -17,10 +19,17 @@ class Enrollment(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            name = '%s - %s até %s' % (record.partner_id.name,
-                                       record.start_date, record.end_date)
+            name = '[%s] %s' % (record.code or '', record.partner_id.name)
             result.append((record.id, name))
         return result
+
+    def _compute_invoice_count(self):
+        for enrollment in self:
+            total = self.env['account.invoice'].search_count(
+                [('origin_enrollment_id', '=', enrollment.id)])
+            enrollment.invoice_count = total
+
+    invoice_count = fields.Integer(compute='_compute_invoice_count')
 
     company_id = fields.Many2one(
         'res.company', string="Company", required=True, readonly=True,
@@ -51,7 +60,11 @@ class Enrollment(models.Model):
                                 compute='_compute_final_value', store=True)
     state = fields.Selection(
         [('draft', 'Draft'), ('in_use', 'In Use'), ('expired', 'Expired')],
-        string="State", default="draft", readonly=True, copy=False)
+        string="State", default="draft", readonly=True, copy=False,
+        track_visibility='onchange')
+
+    origin_order_id = fields.Many2one('sale.order')
+    next_invoice = fields.Date(string="Next Invoice")
 
     @api.one
     @api.constrains('start_date', 'end_date')
@@ -72,10 +85,57 @@ class Enrollment(models.Model):
             item.net_price = item.gross_price * (1 - (item.discount / 100))
 
     def action_confirm(self):
-        self.write({'state': 'in_use'})
+        sequence = self.env.ref('school_management.sequence_enrollment')
+        code = sequence.next_by_id()
+        self.write({'state': 'in_use', 'code': code})
 
     def action_expiry(self):
         self.write({'state': 'expired'})
 
     def action_back_draft(self):
         self.write({'state': 'draft'})
+
+    @api.model
+    def create(self, vals):
+        vals['next_invoice'] = vals['start_date']
+        return super(Enrollment, self).create(vals)
+
+    def generate_invoices(self):
+        enrollment_ids = self.search([('state', '=', 'in_use'),
+                                      ('next_invoice', '<=', date.today())])
+
+        for enrollment in enrollment_ids:
+
+            lista = [(0, False, {
+                'product_id': x.product_id.id,
+                'name': x.name,
+                'quantity': 1,
+                'price_unit': x.total_price,
+                'account_id': x.product_id.categ_id.property_account_income_categ_id.id,
+            }) for x in enrollment.school_class_ids]
+
+            self.env['account.invoice'].create({
+                'partner_id': enrollment.partner_id.id,
+                'company_id': enrollment.company_id.id,
+                'origin': enrollment.code,
+                'type': 'out_invoice',
+                'date_invoice': date.today(),
+                'invoice_line_ids': lista,
+                'origin_enrollment_id': enrollment.id,
+            })
+
+            enrollment.next_invoice = date.today() + timedelta(days=30)
+
+    def action_view_invoices(self):
+        action = self.env.ref('account.action_invoice_tree1').read()[0]
+
+        invoice_ids = self.env['account.invoice'].search(
+            [('origin_enrollment_id', '=', self.id)])
+
+        action['domain'] = [('id', 'in', invoice_ids.ids)]
+        return action
+
+    def cron_expiry_enrollments(self):
+        enrollment_ids = self.search([('state', '=', 'in_use'),
+                                      ('end_date', '<=', date.today())])
+        enrollment_ids.action_expiry()

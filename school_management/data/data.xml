@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    <record id="sequence_enrollment" model="ir.sequence">
+        <field name="name">Enrollment Sequence</field>
+        <field name="code">enrollment</field>
+        <field name="prefix">EN/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="ir_cron_enrollment_invoice" model="ir.cron">
+        <field name="name">Enrollment: Generate invoice from enrollment</field>
+        <field name="model_id" ref="model_school_enrollment"/>
+        <field name="state">code</field>
+        <field name="code">model.generate_invoices()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+    <record id="ir_cron_enrollment_expiry" model="ir.cron">
+        <field name="name">Enrollment: Expiry enrollments</field>
+        <field name="model_id" ref="model_school_enrollment"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_expiry_enrollments()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+  </data>
+</odoo>

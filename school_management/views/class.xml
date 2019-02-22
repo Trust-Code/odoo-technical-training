@@ -45,6 +45,7 @@
                     <group>
                         <field name="currency_id" />
                         <field name="hour_price" />
+                        <field name="product_id" />
                     </group>
                     <group>
                         <field name="total_price" />

@@ -26,7 +26,10 @@ class SchoolClass(models.Model):
 
     currency_id = fields.Many2one('res.currency', string="Moeda",
                                   default=_default_currency_id)
-    hour_price = fields.Monetary(string="Price per Hour")
+
+    product_id = fields.Many2one('product.product', string="Product")
+    hour_price = fields.Float(
+        string="Price per Hour", related='product_id.lst_price', readonly=True)
 
     total_price = fields.Monetary(
         string="Total Price", compute='_compute_total_price', store=True)
