@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+
+    <record id="view_monitor_tree" model="ir.ui.view" >
+      <field name="name">View Monitor Tree</field>
+      <field name="model">monitor</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="status"/>
+              <field name="hostname" />
+              <field name="ip_address"/>
+              <field name="protocol" />
+              <field name="port" />
+          </tree>
+      </field>
+    </record>
+
+    <record id="view_monitor_form" model="ir.ui.view">
+      <field name="name">View Monitor Form</field>
+      <field name="model">monitor</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="hostname" />
+                        <field name="ip_address" />
+                        <field name="status" />
+                    </group>
+                    <group>
+                        <field name="protocol" />
+                        <field name="port" />
+                    </group>
+                </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_monitoramento_ativos">
+      <field name="name">Monitoramento</field>
+      <field name="res_model">monitor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Monitoramento" id="menu_monitoramento" />
+    <menuitem name="Ativos" id="menu_monitoramento_ativos" parent="menu_monitoramento"
+        sequence="100" action="action_monitoramento_ativos"/>
+
+  </data>
+</odoo>
